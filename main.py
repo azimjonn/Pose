@@ -47,7 +47,7 @@ class EncoderDecoder(nn.Module):
         self.decoder = decoder
     
     def forward(self, x):
-        return decoder(encoder(x))
+        return self.decoder(self.encoder(x))
 
 model = EncoderDecoder(encoder, decoder)
 criterion = nn.MSELoss()
